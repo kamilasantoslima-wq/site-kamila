@@ -1,1 +1,326 @@
-meu blog tech
+site de divulgação produtos melu
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melu - Universo Pink & Chocolate</title>
+    <style>
+        /* Reset e Cores Globais (Paleta Rosa e Marrom) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --rosa-claro: #FFF0F5;
+            --rosa-principal: #FF69B4;
+            --rosa-choque: #FF1493;
+            --marrom-escuro: #4A2E2B;
+            --marrom-medio: #7A5C58;
+            --branco: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--rosa-claro);
+            color: var(--marrom-escuro);
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--branco);
+            border-bottom: 4px solid var(--marrom-escuro);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--rosa-choque);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--marrom-escuro);
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--marrom-medio);
+            font-weight: 600;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--rosa-principal);
+        }
+
+        /* Banner Principal */
+        .hero {
+            background: linear-gradient(135deg, var(--rosa-principal), var(--marrom-escuro));
+            color: var(--branco);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            background-color: var(--branco);
+            color: var(--marrom-escuro);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--branco);
+            border-color: var(--branco);
+        }
+
+        /* Seção de Produtos */
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--marrom-escuro);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--rosa-principal);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--branco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(74, 46, 43, 0.1);
+            transition: transform 0.3s;
+            border: 1px solid rgba(122, 92, 88, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Espaço para as Fotos */
+        .card-img {
+            width: 100%;
+            height: 250px;
+            background-color: #EFEFEF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--marrom-medio);
+            font-style: italic;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-body h3 {
+            font-size: 1.3rem;
+            color: var(--marrom-escuro);
+            margin-bottom: 10px;
+        }
+
+        .card-body p {
+            color: var(--marrom-medio);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .card-btn {
+            display: inline-block;
+            background-color: var(--rosa-principal);
+            color: var(--branco);
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .card-btn:hover {
+            background-color: var(--marrom-escuro);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--marrom-escuro);
+            color: var(--rosa-claro);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .social-links a {
+            color: var(--rosa-principal);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .social-links a:hover {
+            color: var(--branco);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho / Menu -->
+    <header>
+        <div class="logo">ME<span>LU</span></div>
+        <nav>
+            <a href="#produtos">Produtos</a>
+            <a href="#lancamentos">Lançamentos</a>
+            <a href="#sobre">Sobre a Marca</a>
+        </nav>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero">
+        <h1>Seu Glow Favorito</h1>
+        <p>Descubra a linha de maquiagem e cuidados que combina a fofura do rosa com o estilo moderno e marcante do marrom.</p>
+        <a href="#produtos" class="btn">Ver Coleção</a>
+    </section>
+
+    <!-- Seção de Produtos -->
+    <main class="container" id="produtos">
+        <h2 class="section-title">Nossos Queridinhos</h2>
+        
+        <div class="grid-produtos">
+            
+            <!-- Produto 1 -->
+            <div class="card">
+                <div class="card-img">
+                    <!-- Substitua o src pela URL ou caminho da foto real do produto -->
+                    <img src="https://placeholder.com" alt="Lip Gloss Melu">
+                    <span>Foto do Lip Gloss</span>
+                </div>
+                <div class="card-body">
+                    <h3>Lip Gloss Melu</h3>
+                    <p>Brilho intenso com aroma delicioso e hidratação profunda para os seus lábios.</p>
+                    <a href="#" class="card-btn">Eu Quero</a>
+                </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://placeholder.com" alt="Paleta de Sombras">
+                    <span>Foto da Paleta</span>
+                </div>
+                <div class="card-body">
+                    <h3>Paleta de Sombras</h3>
+                    <p>Cores ultra pigmentadas em tons de rosa e marrom para o look perfeito.</p>
+                    <a href="#" class="card-btn">Eu Quero</a>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://placeholder.com" alt="Blush Cremoso">
+                    <span>Foto do Blush</span>
+                </div>
+                <div class="card-body">
+                    <h3>Blush Cremoso</h3>
+                    <p>Textura leve com acabamento natural que dura o dia inteirinho.</p>
+                    <a href="#" class="card-btn">Eu Quero</a>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://placeholder.com" alt="Máscara de Cílios">
+                    <span>Foto da Máscara</span>
+                </div>
+                <div class="card-body">
+                    <h3>Máscara de Cílios</h3>
+                    <p>Volume instantâneo e definição fio a fio sem borrar.</p>
+                    <a href="#" class="card-btn">Eu Quero</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 Divulgação Melu / Ruby Rose. Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="#">Instagram</a> | 
+            <a href="#">TikTok</a> | 
+            <a href="#">WhatsApp</a>
+        </div>
+    </footer>
+
+</body>
+</html>
